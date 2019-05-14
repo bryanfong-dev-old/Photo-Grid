@@ -1,1 +1,1 @@
-# Solo-Project-Photo-App-
+# Solo-Project-Photo-App
