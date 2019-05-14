@@ -1,7 +1,6 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
 
-app.get('/', (req, res) => res.send('PHOTO APP'));
 
-app.listen(port, () => console.log(`Listening on Port ${port}`))
+ReactDOM.render(<App />, document.getElementById("root"));
