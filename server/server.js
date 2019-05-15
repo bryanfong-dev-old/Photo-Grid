@@ -2,11 +2,13 @@
 /****** DATABASE *****/
 /*********************/
 const mongoose = require('mongoose');
-const photoController = require('./photoController')
+const { resetPhotos, getPhotos, addPhoto } = require('./photoController');
 mongoose.connect('mongodb://localhost/solo-project-db', (err) => {
   if (err) throw err;
   console.log('Successfully connected to mongodb!')
 })
+
+
 
 /********************/
 /***** EXPRESS ******/
@@ -33,8 +35,9 @@ app.get('/build/bundle.js', (req, res) => {
 /***** CONTROLLERS ******/
 /************************/
 
-app.get('/photos', photoController.displayPhotos);
-app.post('/photos', photoController.addPhoto);
+app.get('/photos', getPhotos);
+app.post('/photos', addPhoto);
+app.get('/reset', resetPhotos);
 
 
 const PhotoObj = [
