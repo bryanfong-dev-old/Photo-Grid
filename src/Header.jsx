@@ -4,7 +4,7 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <h1>My Photo App</h1>
+        <h1>MY PHOTO APP</h1>
       </div>
     )
   }

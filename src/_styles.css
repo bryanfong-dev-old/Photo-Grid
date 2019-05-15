@@ -1,11 +1,26 @@
 #photoContainer {
   width: 100%;
   display: grid;
-  grid-template-columns: 30% 30% 30%;
-  grid-row-gap: 20px;
-  justify-content: space-around;
+  grid-template-columns: repeat(3, 31vw);
+  grid-gap: 40px;
+  justify-content: space-between;
+}
+
+h1 {
+  font-family: 'Varela', sans-serif;
+  font-size: 30px;
+  font-weight: 200;
 }
 
 img {
   width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  /* border: 1px solid black; */
 }
