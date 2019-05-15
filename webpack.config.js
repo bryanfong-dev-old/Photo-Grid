@@ -20,7 +20,7 @@ module.exports = {
   },
   resolve: { extensions: [".js", ".jsx"] },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/public/',
   },
