@@ -1,13 +1,13 @@
 import React from "react";
 
-class App extends React.Component {
+class Header extends React.Component {
   render() {
     return (
       <div>
-        <h1>PHOTO APP</h1>
+        <h1>My Photo App</h1>
       </div>
     )
   }
 }
 
-export default App;
+export default Header;

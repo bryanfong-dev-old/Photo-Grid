@@ -2,7 +2,7 @@
   "name": "solo-project-photo-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "_index.js",
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack",

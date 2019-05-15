@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 module.exports = {
   mode: "production",
-  entry: "./src/index.js",
+  entry: "./src/_index.js",
   module: {
     rules: [
       {
@@ -18,6 +18,7 @@ module.exports = {
       }
     ]
   },
+  resolve: { extensions: [".js", ".jsx"] },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
