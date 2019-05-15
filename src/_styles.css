@@ -6,14 +6,30 @@
   justify-content: space-between;
 }
 
-h1 {
+body {
   font-family: 'Varela', sans-serif;
+
+}
+
+h1 {
   font-size: 30px;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 10px;
   font-weight: 200;
+  margin: 0;
+  padding: 0;
+  padding-right: 10px;
+  text-align: right;
+  color: gray;
 }
 
 img {
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -21,6 +37,6 @@ body {
   justify-content: center;
 }
 
-* {
-  /* border: 1px solid black; */
-}
+/* div {
+  border: 1px solid black;
+} */

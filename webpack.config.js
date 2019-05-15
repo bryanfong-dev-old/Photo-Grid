@@ -27,5 +27,10 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "public"),
     publicPath: '/build/',
+    hotOnly: true,
+    proxy: {
+      '/photos': 'http://localhost:3000/'
+    }
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 };

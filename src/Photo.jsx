@@ -4,7 +4,8 @@ class Photo extends React.Component {
   render() {
     return (
       <div>
-        <img src={this.props.link}></img>
+        <h2>{this.props.photo.author}</h2>
+        <img src={this.props.photo.photo_link}></img>
       </div>
     )
   }
