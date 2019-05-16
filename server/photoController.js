@@ -26,7 +26,7 @@ module.exports = {
   addPhoto: (req, res) => {
     PhotoModel.create(req.body, (err, doc) => {
       console.log(req.body);
-      if (err) throw err;
+      if (err) console.log('Error adding photo')
       console.log("Photo Added!")
       res.json(doc);
     })

@@ -15,8 +15,9 @@ class Form extends React.Component {
           <input type="text" id="link" name="link" placeholder="Link must be jpeg, jpg, gif, or png" />
         </label>
         <input type="submit" value="Submit" onClick={(e) => {
-          // e.preventDefault();
+          e.preventDefault();
           if (link.value.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+            console.log(author.value);
             this.props.handleClick(author.value, link.value);
           }
           author.value = "";

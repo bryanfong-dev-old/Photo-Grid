@@ -12,7 +12,6 @@ class App extends React.Component {
   }
 
   handleClick(author, link) {
-    if (author = " ") { author = "Unkown" }
     fetch('http://localhost:3000/photos', {
       method: 'POST',
       body: JSON.stringify({ "author": author, "html_link": link }),
@@ -20,8 +19,8 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        let newState = this.state.push(data);
-        this.setState(newState);
+        console.log(data);
+        this.setState({ photos: [...this.state.photos, { author: data.author, html_link: data.html_link }] });
         console.log(data);
       })
       .catch(error => console.error('Error', error));
