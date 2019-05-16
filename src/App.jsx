@@ -7,10 +7,7 @@ import "./_styles.css";
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-
-      photos: [],
-    }
+    this.state = { photos: [] }
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseHover = this.handleMouseHover.bind(this);
   }
@@ -63,8 +60,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="app"
-      >
+      <div id="app">
         <Header />
         <PhotoContainer {...this.state} handleMouseHover={this.handleMouseHover} />
         <Form handleClick={this.handleClick} />

@@ -13,12 +13,22 @@ module.exports = {
     })
   },
 
+  resetHover: (req, res, next) => {
+    PhotoModel.updateMany(
+      {},
+      { isHovering: 0 },
+      { multi: true },
+      (err, doc) => {
+        if (err) console.log('Error updating hover');
+        next();
+      })
+  },
+
   getPhotos: (req, res) => {
     PhotoModel.find((err, doc) => {
       if (err) throw err;
       if (!doc) res.send("Cannot find any photos")
       console.log("Photo Displayed!")
-
       res.json(doc);
     });
   },
