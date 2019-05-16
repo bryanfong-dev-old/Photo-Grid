@@ -44,4 +44,50 @@ for (let i = 0; i < photosArray.length; i++) {
   samplePhotos.push(temp);
 }
 
+const cohort11 = {
+  Joe: [
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJA16GJ23/image_from_ios.jpg",
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJ84WPJJH/image_from_ios.jpg",
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJ8APFV96/20190426_184051.jpg",
+  ],
+  Conor: [
+    "https://files.slack.com/files-pri/TGS0VD61Z-FHWV8RZRQ/file.jpg",
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJA6ZK2RM/file.jpg",
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJDUCSFNY/file.jpg",
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJDUCSJDS/file.jpg",
+  ],
+  Altai: [
+    "https://files.slack.com/files-pri/TGS0VD61Z-FHX19Q266/img_20190418_202438.jpg",
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJAJ7TB4N/img_20190418_202019.jpg",
+    "https://files.slack.com/files-pri/TGS0VD61Z-FHWV5TVJP/mvimg_20190418_201735.jpg",
+  ],
+  Jared: [
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJ7U51W84/20190427_174316.jpg",
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJ7UKN31A/20190427_200243.jpg"
+  ],
+  Kate: [
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJEFANV4Y/img_20190504_164329.jpg",
+  ],
+  Tyler: [
+    "https://files.slack.com/files-pri/THT2CUP1V-FHV7G9YQ2/fa.jpg",
+  ],
+  Alena: [
+    "https://files.slack.com/files-pri/TGS0VD61Z-FJ400NTJT/image_from_ios.jpg",
+  ]
+}
+
+for (let author in cohort11) {
+  for (let i = 0; i < cohort11[author].length; i++) {
+    const temp = {};
+    temp.author = author;
+    temp.html_link = cohort11[author][i];
+    temp.page = "cohort11";
+    samplePhotos.push(temp);
+  }
+}
+
+
+
+
+
 module.exports = samplePhotos;
