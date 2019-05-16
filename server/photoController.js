@@ -25,6 +25,13 @@ module.exports = {
   },
 
   getPhotos: (req, res) => {
+    if (req.path = '/photos') {
+      console.log("you are at demo")
+    }
+
+
+
+
     PhotoModel.find((err, doc) => {
       if (err) throw err;
       if (!doc) res.send("Cannot find any photos")
