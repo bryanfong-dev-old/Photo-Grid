@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <div id="app">
         <Header />
-        <PhotoContainer />
+        <PhotoContainer {...this.state} />
         <Form />
       </div>
     )
