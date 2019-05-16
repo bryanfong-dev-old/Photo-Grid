@@ -7,14 +7,15 @@ class Photo extends React.Component {
         <img src={this.props.photo.html_link}
           id={this.props.photo._id}
           onMouseEnter={(e) => {
-            console.log(e.target);
             this.props.handleMouseHover(e.target.id);
           }}
           onMouseLeave={(e) => {
             this.props.handleMouseHover(e.target.id);
           }}
         />
-        {(this.props.photo.isHovering % 2 === 1) && <h2>{this.props.photo.author}</h2>}
+        {(this.props.photo.isHovering % 2 === 1) &&
+          <h2>{this.props.photo.author}</h2>
+        }
       </div>
     )
   }

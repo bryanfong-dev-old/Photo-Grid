@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+
       photos: [],
     }
     this.handleClick = this.handleClick.bind(this);
@@ -22,13 +23,13 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ photos: [...this.state.photos, { author: data.author, html_link: data.html_link }] });
+        console.log(2);
+        this.setState({ photos: [...this.state.photos, { ...data }] });
       })
       .catch(error => console.error('Error', error));
   }
 
   handleMouseHover(id) {
-    console.log('handleMouseHover');
     fetch('http://localhost:3000/photos', {
       method: 'PUT',
       body: JSON.stringify({
@@ -38,11 +39,8 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        // console.log(data);
         const newPhotos = JSON.parse(JSON.stringify(this.state.photos))
         for (let photo in newPhotos) {
-          // console.log(newPhotos[photo]);
-          // console.log("inside for loop")
           if (newPhotos[photo]._id === id) {
             newPhotos[photo].isHovering = data.isHovering
             break;
@@ -55,7 +53,6 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    console.log('in component did mount')
     fetch('http://localhost:3000/photos')
       .then(res => res.json())
       .then(data => {
