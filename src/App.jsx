@@ -7,13 +7,16 @@ import "./_styles.css";
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-      photos: []
-    }
+    this.state = { photos: [] }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    console.log('you clicked me')
   }
 
   componentDidMount() {
-    console.log('in componentdidmount')
+    console.log('in component did mount')
     fetch('http://localhost:3000/photos')
       .then(res => res.json())
       .then(data => {
@@ -28,7 +31,7 @@ class App extends React.Component {
       <div id="app">
         <Header />
         <PhotoContainer {...this.state} />
-        <Form />
+        <Form handleClick={this.handleClick} />
       </div>
     )
   }

@@ -8,8 +8,6 @@ class PhotoContainer extends React.Component {
     this.props.photos.forEach((link, i) => {
       Photos.push(<Photo photo={this.props.photos[i]} />);
     })
-
-
     return (
       <div id="photoContainer">
         {Photos}
