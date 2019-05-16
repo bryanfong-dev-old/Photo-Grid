@@ -25,14 +25,11 @@ module.exports = {
   },
 
   getPhotos: (req, res) => {
-    if (req.path = '/photos') {
-      console.log("you are at demo")
-    }
+    let path;
+    if (req.path === '/photos') path = "demo";
+    if (req.path === '/cohort11') path = "cohort11";
 
-
-
-
-    PhotoModel.find((err, doc) => {
+    PhotoModel.find({ page: path }, (err, doc) => {
       if (err) throw err;
       if (!doc) res.send("Cannot find any photos")
       console.log("Photo Displayed!")
@@ -41,8 +38,12 @@ module.exports = {
   },
 
   addPhoto: (req, res) => {
+    let path;
+    if (req.path === '/photos') path = "demo";
+    if (req.path === '/cohort11') path = "cohort11";
+
     const { author, html_link } = req.body
-    const newPhoto = { author: author, html_link: html_link }
+    const newPhoto = { author: author, html_link: html_link, page: path };
     PhotoModel.create(newPhoto, (err, doc) => {
       if (err) console.log('Error adding photo')
       res.send(doc);
