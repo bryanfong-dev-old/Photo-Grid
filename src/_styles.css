@@ -20,14 +20,19 @@ h1 {
 }
 
 h2 {
-  font-size: 12px;
-  font-weight: 200;
+  max-width: 200px;
+  font-size: 15px;
+  letter-spacing: 5px;
+  font-weight: 100;
   margin: 0;
   padding: 0;
   position: 250px;
   word-wrap: break-word;
   text-align: center;
-  color: rgba(0 ,0 ,0 , 0.70)
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 img {
@@ -36,17 +41,18 @@ img {
   max-height: 100%;
   width: auto;
   height: auto;
+  
 }
 
 img:hover {
-  opacity: 0.25;
-  /* transform: scale(1.02); */
-  filter: blur(.15px);
-  -webkit-filter: blur(.15px);
+  opacity: 0.15;
+  filter: blur(.20px);
+  -webkit-filter: blur(.20px);
 }
 
 .photo-div {
   display:flex; 
+  position: relative;
   justify-content: center;
   flex-direction: column;
 }
