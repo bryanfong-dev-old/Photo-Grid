@@ -9,8 +9,8 @@ module.exports = {
     await PhotoModel.create(sample, (err, doc) => {
       console.log(sample);
       if (err) throw err;
-      console.log("Photo Added!")
-      res.json(doc);
+      console.log("Photo Resetted!")
+      // res.json(doc);
     })
   },
 

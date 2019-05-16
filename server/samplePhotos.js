@@ -35,7 +35,7 @@ const samplePhotos = [];
 for (let i = 0; i < photosArray.length; i++) {
   const temp = {};
   temp.author = names[i];
-  temp.photo_link = photosArray[i];
+  temp.html_link = photosArray[i];
   samplePhotos.push(temp);
 }
 

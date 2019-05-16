@@ -11,8 +11,20 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    console.log('you clicked me')
+  handleClick(author, link) {
+    if (author = " ") { author = "Unkown" }
+    fetch('http://localhost:3000/photos', {
+      method: 'POST',
+      body: JSON.stringify({ "author": author, "html_link": link }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(res => res.json())
+      .then(data => {
+        let newState = this.state.push(data);
+        this.setState(newState);
+        console.log(data);
+      })
+      .catch(error => console.error('Error', error));
   }
 
   componentDidMount() {
@@ -20,10 +32,10 @@ class App extends React.Component {
     fetch('http://localhost:3000/photos')
       .then(res => res.json())
       .then(data => {
-        // console.log(data);
         this.setState({ photos: data })
         console.log(this.state);
-      });
+      })
+      .catch(error => console.error('Error', error));
   }
 
   render() {
