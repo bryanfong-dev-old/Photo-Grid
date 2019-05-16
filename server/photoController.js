@@ -24,14 +24,29 @@ module.exports = {
   },
 
   addPhoto: (req, res) => {
-    PhotoModel.create(req.body, (err, doc) => {
-      console.log(req.body);
+    const { author, html_link } = req.body
+    const newPhoto = { author: author, html_link: html_link }
+    PhotoModel.create(newPhoto, (err, doc) => {
+      console.log(newPhoto);
       if (err) console.log('Error adding photo')
       console.log("Photo Added!")
       res.json(doc);
     })
   },
 
-
+  toggleHover: (req, res) => {
+    // console.log(req);
+    // console.log("put request")
+    // console.log(req.body);
+    const { _id } = req.body;
+    PhotoModel.findOneAndUpdate(
+      { _id: _id },
+      { $inc: { isHovering: 1 } },
+      { new: true },
+      (err, doc) => {
+        if (err) console.log('Error updating hover');
+        res.json(doc);
+      });
+  }
 
 }

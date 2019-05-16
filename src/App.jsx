@@ -7,8 +7,11 @@ import "./_styles.css";
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { photos: [] }
+    this.state = {
+      photos: [],
+    }
     this.handleClick = this.handleClick.bind(this);
+    this.handleMouseHover = this.handleMouseHover.bind(this);
   }
 
   handleClick(author, link) {
@@ -19,12 +22,37 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({ photos: [...this.state.photos, { author: data.author, html_link: data.html_link }] });
-        console.log(data);
       })
       .catch(error => console.error('Error', error));
   }
+
+  handleMouseHover(id) {
+    console.log('handleMouseHover');
+    fetch('http://localhost:3000/photos', {
+      method: 'PUT',
+      body: JSON.stringify({
+        _id: id,
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        const newPhotos = JSON.parse(JSON.stringify(this.state.photos))
+        for (let photo in newPhotos) {
+          // console.log(newPhotos[photo]);
+          // console.log("inside for loop")
+          if (newPhotos[photo]._id === id) {
+            newPhotos[photo].isHovering = data.isHovering
+            break;
+          }
+        }
+        this.setState({ photos: [...newPhotos] });
+      })
+      .catch(error => console.error('Error', error));
+  }
+
 
   componentDidMount() {
     console.log('in component did mount')
@@ -32,16 +60,16 @@ class App extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({ photos: data })
-        console.log(this.state);
       })
       .catch(error => console.error('Error', error));
   }
 
   render() {
     return (
-      <div id="app">
+      <div id="app"
+      >
         <Header />
-        <PhotoContainer {...this.state} />
+        <PhotoContainer {...this.state} handleMouseHover={this.handleMouseHover} />
         <Form handleClick={this.handleClick} />
       </div>
     )
