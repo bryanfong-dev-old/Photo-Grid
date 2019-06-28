@@ -1,3 +1,4 @@
-# Solo-Project-Photo-App
+# Photo Grid
 
-It's gonna be lit! 
+Preview of project
+![alt text](public/Screenshot.png)
